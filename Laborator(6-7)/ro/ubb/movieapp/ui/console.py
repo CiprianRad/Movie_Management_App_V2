@@ -2,6 +2,10 @@ class Console:
     def __init__(self, movie_operations):
         self.__movie_operations = movie_operations
 
+    @property
+    def movie_operations(self):
+        return self.__movie_operations
+
     @staticmethod
     def show_menu():
         print("1. Add a new movie: ")
@@ -34,19 +38,19 @@ class Console:
             title = input("Please enter the movie title: ")
             description = input("Please enter the movie description: ")
             genre = input("Please enter the movie genre: ")
-            self.__movie_operations.add_movie(movie_id, title, description, genre)
+            self.movie_operations.add_movie(movie_id, title, description, genre)
         except ValueError:
             print("Please enter valid inputs: ")
 
     def ui_delete_movie(self):
         try:
             movie_id = int(input("Please enter the movie ID: "))
-            self.__movie_operations.delete_movie(movie_id)
+            self.movie_operations.delete_movie(movie_id)
         except ValueError:
             print("Please enter valid inputs: ")
 
     def ui_read_movie(self):
-        movies = self.__movie_operations.read_all_movies()
+        movies = self.movie_operations.read_all_movies()
         if not movies or len(movies) == 0:
             print("No movies found.")
         for movie in movies:
@@ -58,12 +62,6 @@ class Console:
             title = input("Please enter a new movie title: ")
             description = input("Please enter a new movie description: ")
             genre = input("Please enter a new movie genre: ")
-            self.__movie_operations.update_movie(id, title, description, genre)
+            self.movie_operations.update_movie(id, title, description, genre)
         except ValueError:
             print("Please enter valid inputs: ")
-
-
-
-
-
-
