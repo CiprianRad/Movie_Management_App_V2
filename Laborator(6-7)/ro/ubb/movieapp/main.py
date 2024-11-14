@@ -15,6 +15,8 @@ I6: is using a menu-based UI
 
 """
 
+#TODO: make a function test_all to call the tests in tha main file
+
 from ro.ubb.movieapp.operations.movieoperations import MovieOperations
 from ro.ubb.movieapp.ui.console import Console
 
